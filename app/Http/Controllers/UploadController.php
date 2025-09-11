@@ -3,9 +3,15 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Symfony\Component\CssSelector\XPath\Extension\FunctionExtension;
 
 class UploadController extends Controller
 {
+    public function index(Request $request)
+    {
+        return view('upload');
+    }
+
     public function upload (Request $request):string
     {
 
@@ -16,5 +22,6 @@ class UploadController extends Controller
 
         $path = $request -> file('recipt')-> storeAs('recipts',$filename);
         return $path;
+        
     }
 }
